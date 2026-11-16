@@ -1,0 +1,21 @@
+name: Build Windows app
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and test
+        shell: powershell
+        run: ./build.ps1 -Test
+      - uses: actions/upload-artifact@v4
+        with:
+          name: YodaFy-Windows
+          path: |
+            dist/YodaFy.exe
+            dist/YodaFy.exe.config
+          if-no-files-found: error

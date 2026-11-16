@@ -1,0 +1,7 @@
+dist/
+*.user
+*.suo
+*.tmp
+test-results/
+# Preserve the original mixed Android/bot prototype locally, outside this repository.
+/yoda-project/
